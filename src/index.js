@@ -12,7 +12,9 @@ dotenv.config({
 
 app.use(cors({
     origin:process.env.CORS_ORIGIN,
-    credentials:true
+    credentials:true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: ['Content-Type', 'Authorization'], // Adjust headers as needed
 }))
 
 app.use(express.json({limit:"16kb"}));
