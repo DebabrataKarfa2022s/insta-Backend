@@ -138,6 +138,7 @@ const login = asyncHandler(async (req, res) => {
       following: user.following,
       posts: populatedPosts,
     };
+    console.log("user login successfull")
 
     return res
       .cookie("token", token, {
@@ -158,6 +159,7 @@ const login = asyncHandler(async (req, res) => {
 
 const logout = asyncHandler(async (req, res) => {
   try {
+    console.log("logout successfull")
     return res
       .cookie("token", "", {maxAge: 0})
       .json(new ApiResponse(200,null, "logged out successfully"));
