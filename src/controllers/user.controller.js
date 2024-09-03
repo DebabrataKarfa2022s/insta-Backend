@@ -195,7 +195,8 @@ const forgetPassword = asyncHandler(async(req,res)=>{
       }
     );
 
-    const resetLink = `http://localhost:5173/reset-password/${user._id}/${token}`;
+    // const resetLink = `http://localhost:5173/reset-password/${user._id}/${token}`;
+    const resetLink = `https://inasta-frontend.onrender.com/reset-password/${user._id}/${token}`;
 
 
     const transpoter = nodemailer.createTransport({
