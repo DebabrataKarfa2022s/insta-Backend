@@ -160,10 +160,23 @@ const login = asyncHandler(async (req, res) => {
 
 const logout = asyncHandler(async (req, res) => {
   try {
-    console.log("logout successfull")
-    return res
-      .cookie("token", "", {maxAge: 0})
-      .json(new ApiResponse(200,null, "logged out successfully"));
+    // console.log("logout successfull")
+
+    res.clearCookie("token", {
+      sameSite: 'None',
+      secure: true,
+      httpOnly: true,
+      maxAge:0
+    });
+
+    // return res
+    //   .cookie("token", "", {maxAge: 0})
+    //   .json(new ApiResponse(200,null, "logged out successfully"));
+
+    return res.json(
+      new ApiResponse(200,null, "user logout successfully done")
+    )
+
   } catch (error) {
     res.json(
       new ApiError(
