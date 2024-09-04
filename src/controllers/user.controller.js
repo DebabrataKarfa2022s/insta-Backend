@@ -66,7 +66,7 @@ const checkUsernameUnique = asyncHandler(async(req,res)=>{
   try {
     const {username} = req.params
     if(username.length<3){
-      throw new ApiError(400, "username should be more than 3 character");
+      throw new ApiError(400, "username should be more than 2 character");
     }
 
     const user = await User.findOne({username});
