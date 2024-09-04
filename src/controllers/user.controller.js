@@ -143,7 +143,8 @@ const login = asyncHandler(async (req, res) => {
     return res
       .cookie("token", token, {
         httpOnly: true,
-        sameSite: "strict",
+        secure:false,
+        sameSite: "none",
         maxAge: 1 * 24 * 60 * 60 * 1000,
       })
       .json(new ApiResponse(200, user, `Welcome back ${user.username}`));
